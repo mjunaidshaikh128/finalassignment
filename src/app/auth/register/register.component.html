@@ -1,0 +1,164 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <h2 class="mb-4">Sign Up</h2>
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input
+              formControlName="name"
+              type="text"
+              class="form-control"
+              id="fullName"
+              name="fullName"
+              [ngStyle]="{
+                'border-color':
+                  signupForm.get('name')!.invalid &&
+                  signupForm.get('name')!.touched
+                    ? 'red'
+                    : 'initial',
+                'background-color':
+                  signupForm.get('name')!.invalid &&
+                  signupForm.get('name')!.touched
+                    ? 'mistyrose'
+                    : 'initial'
+              }"
+            />
+            <div
+              style="color: red"
+              *ngIf="
+                signupForm.get('name')!.invalid &&
+                signupForm.get('name')!.touched &&
+                signupForm.controls['name']!.hasError('required')
+              "
+            >
+              Username is required.
+            </div>
+            <div
+              style="color: red"
+              *ngIf="
+                signupForm.get('name')!.invalid &&
+                signupForm.get('name')!.touched &&
+                signupForm.controls['name']!.hasError('minlength')
+              "
+            >
+              Username must be at least 5 characters long.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              [ngStyle]="{
+                'border-color':
+                  signupForm.get('password')!.invalid &&
+                  signupForm.get('password')!.touched
+                    ? 'red'
+                    : 'initial',
+                'background-color':
+                  signupForm.get('password')!.invalid &&
+                  signupForm.get('password')!.touched
+                    ? 'mistyrose'
+                    : 'initial'
+              }"
+            />
+            <div
+              style="color: red"
+              *ngIf="
+                signupForm.get('password')!.invalid &&
+                signupForm.get('password')!.touched &&
+                signupForm.controls['password']!.hasError('required')
+              "
+            >
+              Password is required.
+            </div>
+            <div
+              style="color: red"
+              *ngIf="
+                signupForm.get('password')!.invalid &&
+                signupForm.get('password')!.touched &&
+                signupForm.controls['password']!.hasError('minlength')
+              "
+            >
+              Password must be at least 5 characters long.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              [ngStyle]="{
+                'border-color':
+                  signupForm.get('email')!.invalid &&
+                  signupForm.get('email')!.touched
+                    ? 'red'
+                    : 'initial',
+                'background-color':
+                  signupForm.get('email')!.invalid &&
+                  signupForm.get('email')!.touched
+                    ? 'mistyrose'
+                    : 'initial'
+              }"
+            />
+            <div
+              style="color: red"
+              *ngIf="
+                signupForm.get('email')!.invalid &&
+                signupForm.get('email')!.touched &&
+                signupForm.controls['email']!.hasError('required')
+              "
+            >
+              Email is required.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="avatar" class="form-label">Avatar</label>
+            <input
+              formControlName="avatar"
+              type="avatar"
+              class="form-control"
+              id="avatar"
+              name="avatar"
+              [ngStyle]="{
+                'border-color':
+                  signupForm.get('avatar')!.invalid &&
+                  signupForm.get('avatar')!.touched
+                    ? 'red'
+                    : 'initial',
+                'background-color':
+                  signupForm.get('avatar')!.invalid &&
+                  signupForm.get('avatar')!.touched
+                    ? 'mistyrose'
+                    : 'initial'
+              }"
+            />
+            <div
+              style="color: red"
+              *ngIf="
+                signupForm.get('avatar')!.invalid &&
+                signupForm.get('avatar')!.touched &&
+                signupForm.controls['avatar']!.hasError('required')
+              "
+            >
+              Avatar is required.
+            </div>
+          </div>
+
+  
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+          <p>Already have an account? <a routerLink="/auth/login">Login Here</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  

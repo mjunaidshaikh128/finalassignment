@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <h2 class="mb-4">Login</h2>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            [ngStyle]="{
+              'border-color':
+                loginForm.get('email')!.invalid &&
+                loginForm.get('email')!.touched
+                  ? 'red'
+                  : 'initial',
+              'background-color':
+                loginForm.get('email')!.invalid &&
+                loginForm.get('email')!.touched
+                  ? 'mistyrose'
+                  : 'initial'
+            }"
+          />
+          <div
+            style="color: red"
+            *ngIf="
+              loginForm.get('email')!.invalid &&
+              loginForm.get('email')!.touched &&
+              loginForm.controls['email']!.hasError('required')
+            "
+          >
+            Email is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            [ngStyle]="{
+              'border-color':
+                loginForm.get('password')!.invalid &&
+                loginForm.get('password')!.touched
+                  ? 'red'
+                  : 'initial',
+              'background-color':
+                loginForm.get('password')!.invalid &&
+                loginForm.get('password')!.touched
+                  ? 'mistyrose'
+                  : 'initial'
+            }"
+          />
+          <div
+            style="color: red"
+            *ngIf="
+              loginForm.get('password')!.invalid &&
+              loginForm.get('password')!.touched &&
+              loginForm.controls['password']!.hasError('required')
+            "
+          >
+            Password is required.
+          </div>
+          <div
+            style="color: red"
+            *ngIf="
+              loginForm.get('password')!.invalid &&
+              loginForm.get('password')!.touched &&
+              loginForm.controls['password']!.hasError('minlength')
+            "
+          >
+            Password must be at least 5 characters long.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <p>Don't have an account? <a routerLink="/auth/register">Signup Here</a></p>
+      </form>
+    </div>
+  </div>
+</div>

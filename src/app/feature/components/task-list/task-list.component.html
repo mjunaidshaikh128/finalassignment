@@ -1,0 +1,11 @@
+  <app-add-task (onAddTask)="addTask($event)"></app-add-task>
+<select [(ngModel)]="selectedValue" class="form-select mb-3" style="max-width: 200px;" aria-label="Default select example">
+    <option selected>Filter Tasks</option>
+    <option value="All">All</option>
+    <option value="Done">Done</option>
+    <option value="Not Done">Not Done</option>
+  </select>      
+  <ul class="list-group">
+    <app-task-item *ngFor="let task of tasks | filterTasks: selectedValue" [task]="task" (onMarkAsDone)="markIsCompleted($event)"> </app-task-item>
+  </ul>
+

@@ -1,0 +1,17 @@
+<div class="container m-0" style="max-width: 500px;">
+  <form #taskForm="ngForm" (ngSubmit)="onAddTask.emit(taskForm.value)">
+    <div class="mb-3">
+      <label for="Id" class="form-label">Id</label>
+      <input type="text" class="form-control" ngModel name="id" />
+    </div>
+    <div class="mb-3">
+      <label for="text" class="form-label">Text</label>
+      <textarea class="form-control" ngModel name="text" id="text" cols="50" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="Id" class="form-label">Priority</label>
+      <input type="text" class="form-control" ngModel name="priority" />
+    </div>
+    <button type="submit" class="btn btn-primary mb-5">Add Task</button>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+<i
+  [ngClass]="{'list-group-item-success': task.priority === 'low',
+'list-group-item-warning': task.priority === 'medium',
+'list-group-item-danger': task.priority === 'high',
+}"
+  class="list-group-item d-flex justify-content-between align-items-center"
+  >{{ task.id }}. {{ task.text }}
+  <button [disabled]="task.isCompleted" (click)="onMarkAsDone.emit(task)" class="btn btn-success btn-md">Mark as Done</button>
+</i>
